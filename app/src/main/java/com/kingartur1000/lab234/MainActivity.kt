@@ -15,12 +15,15 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var infoTextView: TextView
-    private lateinit var dynamicContainer: LinearLayout
-    private var dynamicCounter = 21          // для нумерации новых кнопок
-    private var contextButton: Button? = null // для контекстного меню
+    private lateinit var dynamicContainer: LinearLayout  // вертикальный контейнер для рядов
+    private var dynamicCounter = 21                      // начальный номер для новых уровней
+    private var currentRow: LinearLayout? = null         // текущий горизонтальный ряд
+    private var contextButton: Button? = null
 
     companion object {
         private const val TAG = "GameLevels"
+        private const val BUTTONS_PER_ROW = 5
+        private const val INITIAL_DYNAMIC_NUMBER = 21
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +33,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         infoTextView = findViewById(R.id.infoTextView)
         dynamicContainer = findViewById(R.id.dynamicContainer)
 
-        // Назначаем обработчик для 20 статических кнопок
+        // Назначаем обработчики для статических кнопок
         val buttonIds = intArrayOf(
             R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5,
             R.id.button6, R.id.button7, R.id.button8, R.id.button9, R.id.button10,
@@ -41,23 +44,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             findViewById<Button>(id).setOnClickListener(this)
         }
 
-        // Кнопка "Назад" – закрываем Activity
+        // Кнопка "Назад"
         findViewById<Button>(R.id.buttonBack).setOnClickListener { finish() }
     }
 
-    // Обработчик для всех статических кнопок
+    // Обработчик для статических кнопок
     override fun onClick(v: View?) {
         if (v is Button) {
             val text = v.text.toString()
             val levelNumber = text.toIntOrNull() ?: 0
-            // Обновляем TextView (ресурс)
             infoTextView.text = getString(R.string.info_clicked, levelNumber)
-            // Логируем
             Log.d(TAG, "Нажата кнопка уровня: $levelNumber")
         }
     }
 
-    // -------------------- Обычное меню (опции) --------------------
+    // -------------------- Обычное меню --------------------
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
@@ -81,38 +82,60 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    // -------------------- Динамическое добавление кнопок --------------------
+    // -------------------- Динамическое добавление кнопок (по 5 в ряд) --------------------
     private fun addDynamicButton() {
+        // Если текущего ряда нет или он заполнен – создаём новый
+        if (currentRow == null || currentRow!!.childCount >= BUTTONS_PER_ROW) {
+            currentRow = LinearLayout(this).apply {
+                orientation = LinearLayout.HORIZONTAL
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+                // Добавляем отступ снизу для ряда
+                setPadding(0, 0, 0, 8)
+            }
+            dynamicContainer.addView(currentRow)
+        }
+
+        // Создаём кнопку
         val newButton = Button(this).apply {
             text = getString(R.string.level_prefix) + dynamicCounter
             id = View.generateViewId()
-            // Обработчик для динамической кнопки
+            // Обработчик нажатия
             setOnClickListener {
                 infoTextView.text = (it as Button).text
                 Log.d(TAG, "Нажата динамическая кнопка: ${it.text}")
             }
-            // Регистрируем контекстное меню
+            // Регистрация контекстного меню
             registerForContextMenu(this)
+            // Равномерная ширина через weight
+            layoutParams = LinearLayout.LayoutParams(
+                0,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                1.0f
+            )
+            // Отступ справа для всех, кроме последнего
+            if (currentRow!!.childCount < BUTTONS_PER_ROW - 1) {
+                (layoutParams as LinearLayout.LayoutParams).marginEnd = 8
+            }
         }
 
-        val params = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        ).apply { setMargins(0, 8, 0, 8) }
-        newButton.layoutParams = params
-        dynamicContainer.addView(newButton)
+        currentRow!!.addView(newButton)
+        dynamicCounter++
 
         Toast.makeText(this, R.string.toast_added, Toast.LENGTH_SHORT).show()
-        dynamicCounter++
     }
 
     private fun clearDynamicButtons() {
-        dynamicContainer.removeAllViews()
+        dynamicContainer.removeAllViews()   // удаляем все ряды
+        currentRow = null                   // сбрасываем текущий ряд
+        dynamicCounter = INITIAL_DYNAMIC_NUMBER // сбрасываем счётчик на 21
         Toast.makeText(this, R.string.toast_cleared, Toast.LENGTH_SHORT).show()
-        Log.d(TAG, "Динамические кнопки очищены")
+        Log.d(TAG, "Динамические кнопки очищены, счётчик сброшен")
     }
 
-    // -------------------- Контекстное меню для динамических кнопок --------------------
+    // -------------------- Контекстное меню --------------------
     override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
         super.onCreateContextMenu(menu, v, menuInfo)
         if (v is Button) {

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Game Levels</string>
     <string name="back">Назад</string>
-    <string name="level_prefix">Уровень </string>
+    <string name="level_prefix">№</string>
     <string name="info_default">Нажмите на уровень</string>
     <string name="info_clicked">Вы нажали уровень %d</string>
     <string name="menu_add">Добавить уровень</string>
