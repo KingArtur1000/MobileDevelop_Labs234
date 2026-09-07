@@ -1,39 +1,16 @@
 <resources>
-    <string name="app_name">Level Menu</string>
-    <string name="btn_back">Назад</string>
-    <string name="tv_status_default">Выберите уровень</string>
-    <string name="tv_status_level">Выбран уровень: %1$d</string>
-    <string name="tv_status_back">Нажата кнопка \"Назад\"</string>
-
-    <!-- Строковые ресурсы для номеров кнопок -->
-    <string name="level_1">1</string>
-    <string name="level_2">2</string>
-    <string name="level_3">3</string>
-    <string name="level_4">4</string>
-    <string name="level_5">5</string>
-    <string name="level_6">6</string>
-    <string name="level_7">7</string>
-    <string name="level_8">8</string>
-    <string name="level_9">9</string>
-    <string name="level_10">10</string>
-    <string name="level_11">11</string>
-    <string name="level_12">12</string>
-    <string name="level_13">13</string>
-    <string name="level_14">14</string>
-    <string name="level_15">15</string>
-    <string name="level_16">16</string>
-    <string name="level_17">17</string>
-    <string name="level_18">18</string>
-    <string name="level_19">19</string>
-    <string name="level_20">20</string>
-    <string name="level_21">21</string>
-    <string name="level_22">22</string>
-    <string name="level_23">23</string>
-    <string name="level_24">24</string>
-    <string name="level_25">25</string>
-    <string name="level_26">26</string>
-    <string name="level_27">27</string>
-    <string name="level_28">28</string>
-    <string name="level_29">29</string>
-    <string name="level_30">30</string>
+    <string name="app_name">Game Levels</string>
+    <string name="back">Назад</string>
+    <string name="level_prefix">Уровень </string>
+    <string name="info_default">Нажмите на уровень</string>
+    <string name="info_clicked">Вы нажали уровень %d</string>
+    <string name="menu_add">Добавить уровень</string>
+    <string name="menu_clear">Очистить добавленные</string>
+    <string name="menu_exit">Выход</string>
+    <string name="toast_added">Добавлен новый уровень</string>
+    <string name="toast_cleared">Рабочая область очищена</string>
+    <string name="context_change_color">Изменить цвет</string>
+    <string name="context_red">Красный</string>
+    <string name="context_green">Зелёный</string>
+    <string name="context_blue">Синий</string>
 </resources>

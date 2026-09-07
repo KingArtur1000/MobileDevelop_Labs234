@@ -5,427 +5,251 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00A2E8"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <!-- Кнопка "Назад" -->
     <Button
-        android:id="@+id/btnBack"
+        android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Назад"
+        android:text="@string/back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp" />
 
+    <!-- TextView для информации -->
     <TextView
-        android:id="@+id/tvStatus"
-        android:layout_width="wrap_content"
+        android:id="@+id/infoTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/tv_status_default"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        android:text="@string/info_default"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBack"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnBack"
-        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+        android:layout_marginTop="16dp" />
 
-    <!-- РЯД 1 (Кнопки 1 - 5) -->
+    <!-- Ряд 1 (1–5) -->
     <Button
-        android:id="@+id/btn1"
+        android:id="@+id/button1"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="1"
-        app:layout_constraintBottom_toTopOf="@+id/btn6"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn2"
         app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/infoTextView"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn2"
+        android:id="@+id/button2"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="2"
-        app:layout_constraintBottom_toTopOf="@+id/btn7"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn3"
-        app:layout_constraintStart_toEndOf="@+id/btn1"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+        app:layout_constraintLeft_toRightOf="@+id/button1"
+        app:layout_constraintRight_toLeftOf="@+id/button3"
+        app:layout_constraintTop_toTopOf="@+id/button1"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn3"
+        android:id="@+id/button3"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="3"
-        app:layout_constraintBottom_toTopOf="@+id/btn8"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn4"
-        app:layout_constraintStart_toEndOf="@+id/btn2"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+        app:layout_constraintLeft_toRightOf="@+id/button2"
+        app:layout_constraintRight_toLeftOf="@+id/button4"
+        app:layout_constraintTop_toTopOf="@+id/button1"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn4"
+        android:id="@+id/button4"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="4"
-        app:layout_constraintBottom_toTopOf="@+id/btn9"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn5"
-        app:layout_constraintStart_toEndOf="@+id/btn3"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+        app:layout_constraintLeft_toRightOf="@+id/button3"
+        app:layout_constraintRight_toLeftOf="@+id/button5"
+        app:layout_constraintTop_toTopOf="@+id/button1"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn5"
+        android:id="@+id/button5"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="5"
-        app:layout_constraintBottom_toTopOf="@+id/btn10"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn4"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+        app:layout_constraintLeft_toRightOf="@+id/button4"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button1" />
 
-    <!-- РЯД 2 (Кнопки 6 - 10) -->
+    <!-- Ряд 2 (6–10) -->
     <Button
-        android:id="@+id/btn6"
+        android:id="@+id/button6"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="6"
-        app:layout_constraintBottom_toTopOf="@+id/btn11"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn1" />
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/button1"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn7"
+        android:id="@+id/button7"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="7"
-        app:layout_constraintBottom_toTopOf="@+id/btn12"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn8"
-        app:layout_constraintStart_toEndOf="@+id/btn6"
-        app:layout_constraintTop_toBottomOf="@+id/btn2" />
+        app:layout_constraintLeft_toRightOf="@+id/button6"
+        app:layout_constraintRight_toLeftOf="@+id/button8"
+        app:layout_constraintTop_toTopOf="@+id/button6"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn8"
+        android:id="@+id/button8"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="8"
-        app:layout_constraintBottom_toTopOf="@+id/btn13"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn9"
-        app:layout_constraintStart_toEndOf="@+id/btn7"
-        app:layout_constraintTop_toBottomOf="@+id/btn3" />
+        app:layout_constraintLeft_toRightOf="@+id/button7"
+        app:layout_constraintRight_toLeftOf="@+id/button9"
+        app:layout_constraintTop_toTopOf="@+id/button6"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn9"
+        android:id="@+id/button9"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="9"
-        app:layout_constraintBottom_toTopOf="@+id/btn14"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn10"
-        app:layout_constraintStart_toEndOf="@+id/btn8"
-        app:layout_constraintTop_toBottomOf="@+id/btn4" />
+        app:layout_constraintLeft_toRightOf="@+id/button8"
+        app:layout_constraintRight_toLeftOf="@+id/button10"
+        app:layout_constraintTop_toTopOf="@+id/button6"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn10"
+        android:id="@+id/button10"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="10"
-        app:layout_constraintBottom_toTopOf="@+id/btn15"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn9"
-        app:layout_constraintTop_toBottomOf="@+id/btn5" />
+        app:layout_constraintLeft_toRightOf="@+id/button9"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button6" />
 
-    <!-- РЯД 3 (Кнопки 11 - 15) -->
+    <!-- Ряд 3 (11–15) -->
     <Button
-        android:id="@+id/btn11"
+        android:id="@+id/button11"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="11"
-        app:layout_constraintBottom_toTopOf="@+id/btn16"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn6" />
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/button12"
+        app:layout_constraintTop_toBottomOf="@+id/button6"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn12"
+        android:id="@+id/button12"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="12"
-        app:layout_constraintBottom_toTopOf="@+id/btn17"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn13"
-        app:layout_constraintStart_toEndOf="@+id/btn11"
-        app:layout_constraintTop_toBottomOf="@+id/btn7" />
+        app:layout_constraintLeft_toRightOf="@+id/button11"
+        app:layout_constraintRight_toLeftOf="@+id/button13"
+        app:layout_constraintTop_toTopOf="@+id/button11"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn13"
+        android:id="@+id/button13"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="13"
-        app:layout_constraintBottom_toTopOf="@+id/btn18"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn14"
-        app:layout_constraintStart_toEndOf="@+id/btn12"
-        app:layout_constraintTop_toBottomOf="@+id/btn8" />
+        app:layout_constraintLeft_toRightOf="@+id/button12"
+        app:layout_constraintRight_toLeftOf="@+id/button14"
+        app:layout_constraintTop_toTopOf="@+id/button11"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn14"
+        android:id="@+id/button14"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="14"
-        app:layout_constraintBottom_toTopOf="@+id/btn19"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn15"
-        app:layout_constraintStart_toEndOf="@+id/btn13"
-        app:layout_constraintTop_toBottomOf="@+id/btn9" />
+        app:layout_constraintLeft_toRightOf="@+id/button13"
+        app:layout_constraintRight_toLeftOf="@+id/button15"
+        app:layout_constraintTop_toTopOf="@+id/button11"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn15"
+        android:id="@+id/button15"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="15"
-        app:layout_constraintBottom_toTopOf="@+id/btn20"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn14"
-        app:layout_constraintTop_toBottomOf="@+id/btn10" />
+        app:layout_constraintLeft_toRightOf="@+id/button14"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button11" />
 
-    <!-- РЯД 4 (Кнопки 16 - 20) -->
+    <!-- Ряд 4 (16–20) -->
     <Button
-        android:id="@+id/btn16"
+        android:id="@+id/button16"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="16"
-        app:layout_constraintBottom_toTopOf="@+id/btn21"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn17"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn11" />
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/button17"
+        app:layout_constraintTop_toBottomOf="@+id/button11"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn17"
+        android:id="@+id/button17"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="17"
-        app:layout_constraintBottom_toTopOf="@+id/btn22"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn18"
-        app:layout_constraintStart_toEndOf="@+id/btn16"
-        app:layout_constraintTop_toBottomOf="@+id/btn12" />
+        app:layout_constraintLeft_toRightOf="@+id/button16"
+        app:layout_constraintRight_toLeftOf="@+id/button18"
+        app:layout_constraintTop_toTopOf="@+id/button16"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn18"
+        android:id="@+id/button18"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="18"
-        app:layout_constraintBottom_toTopOf="@+id/btn23"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn19"
-        app:layout_constraintStart_toEndOf="@+id/btn17"
-        app:layout_constraintTop_toBottomOf="@+id/btn13" />
+        app:layout_constraintLeft_toRightOf="@+id/button17"
+        app:layout_constraintRight_toLeftOf="@+id/button19"
+        app:layout_constraintTop_toTopOf="@+id/button16"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn19"
+        android:id="@+id/button19"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="19"
-        app:layout_constraintBottom_toTopOf="@+id/btn24"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn20"
-        app:layout_constraintStart_toEndOf="@+id/btn18"
-        app:layout_constraintTop_toBottomOf="@+id/btn14" />
+        app:layout_constraintLeft_toRightOf="@+id/button18"
+        app:layout_constraintRight_toLeftOf="@+id/button20"
+        app:layout_constraintTop_toTopOf="@+id/button16"
+        android:layout_marginEnd="8dp" />
 
     <Button
-        android:id="@+id/btn20"
+        android:id="@+id/button20"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
+        android:layout_height="wrap_content"
         android:text="20"
-        app:layout_constraintBottom_toTopOf="@+id/btn25"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn19"
-        app:layout_constraintTop_toBottomOf="@+id/btn15" />
+        app:layout_constraintLeft_toRightOf="@+id/button19"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button16" />
 
-    <!-- РЯД 5 (Кнопки 21 - 25) -->
-    <Button
-        android:id="@+id/btn21"
+    <!-- Динамический контейнер (LinearLayout) -->
+    <LinearLayout
+        android:id="@+id/dynamicContainer"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
-        android:text="21"
-        app:layout_constraintBottom_toTopOf="@+id/btn26"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn22"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/button20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn16" />
-
-    <Button
-        android:id="@+id/btn22"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
-        android:text="22"
-        app:layout_constraintBottom_toTopOf="@+id/btn27"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn23"
-        app:layout_constraintStart_toEndOf="@+id/btn21"
-        app:layout_constraintTop_toBottomOf="@+id/btn17" />
-
-    <Button
-        android:id="@+id/btn23"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
-        android:text="23"
-        app:layout_constraintBottom_toTopOf="@+id/btn28"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn24"
-        app:layout_constraintStart_toEndOf="@+id/btn22"
-        app:layout_constraintTop_toBottomOf="@+id/btn18" />
-
-    <Button
-        android:id="@+id/btn24"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
-        android:text="24"
-        app:layout_constraintBottom_toTopOf="@+id/btn29"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn25"
-        app:layout_constraintStart_toEndOf="@+id/btn23"
-        app:layout_constraintTop_toBottomOf="@+id/btn19" />
-
-    <Button
-        android:id="@+id/btn25"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
-        android:text="25"
-        app:layout_constraintBottom_toTopOf="@+id/btn30"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn24"
-        app:layout_constraintTop_toBottomOf="@+id/btn20" />
-
-    <!-- РЯД 6 (Кнопки 26 - 30) -->
-    <Button
-        android:id="@+id/btn26"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
-        android:text="26"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn27"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn21" />
-
-    <Button
-        android:id="@+id/btn27"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
-        android:text="27"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn28"
-        app:layout_constraintStart_toEndOf="@+id/btn26"
-        app:layout_constraintTop_toBottomOf="@+id/btn22" />
-
-    <Button
-        android:id="@+id/btn28"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
-        android:text="28"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn29"
-        app:layout_constraintStart_toEndOf="@+id/btn27"
-        app:layout_constraintTop_toBottomOf="@+id/btn23" />
-
-    <Button
-        android:id="@+id/btn29"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
-        android:text="29"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/btn30"
-        app:layout_constraintStart_toEndOf="@+id/btn28"
-        app:layout_constraintTop_toBottomOf="@+id/btn24" />
-
-    <Button
-        android:id="@+id/btn30"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="4dp"
-        android:backgroundTint="#004060"
-        android:text="30"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn29"
-        app:layout_constraintTop_toBottomOf="@+id/btn25" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
