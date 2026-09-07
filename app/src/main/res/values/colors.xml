@@ -4,4 +4,5 @@
     <color name="component_green">#43A047</color>
     <color name="component_blue">#1E88E5</color>
     <color name="component_yellow">#FDD835</color>
+    <color name="component_orange">#FF9800</color>
 </resources>

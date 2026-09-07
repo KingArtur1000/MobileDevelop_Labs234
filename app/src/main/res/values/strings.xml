@@ -13,4 +13,6 @@
     <string name="context_red">Красный</string>
     <string name="context_green">Зелёный</string>
     <string name="context_blue">Синий</string>
+    <string name="context_yellow">Желтый</string>
+    <string name="context_orange">Оранжевый</string>
 </resources>

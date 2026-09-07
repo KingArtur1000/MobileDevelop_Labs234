@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -148,15 +149,33 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.context_red -> {
-                contextButton?.setBackgroundColor(0xFFFF0000.toInt())
+                contextButton?.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.component_red)
+                )
                 true
             }
             R.id.context_green -> {
-                contextButton?.setBackgroundColor(0xFF00FF00.toInt())
+                contextButton?.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.component_green)
+                )
                 true
             }
             R.id.context_blue -> {
-                contextButton?.setBackgroundColor(0xFF0000FF.toInt())
+                contextButton?.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.component_blue)
+                )
+                true
+            }
+            R.id.context_yellow -> {
+                contextButton?.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.component_yellow)
+                )
+                true
+            }
+            R.id.context_orange -> {
+                contextButton?.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.component_orange)
+                )
                 true
             }
             else -> super.onContextItemSelected(item)

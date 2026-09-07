@@ -9,4 +9,10 @@
     <item
         android:id="@+id/context_blue"
         android:title="@string/context_blue" />
+    <item
+        android:id="@+id/context_yellow"
+        android:title="@string/context_yellow" />
+    <item
+        android:id="@+id/context_orange"
+        android:title="@string/context_orange" />
 </menu>
